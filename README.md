@@ -54,7 +54,7 @@ $ git branch
 - La branche créée appartient à votre référentiel local, mais le référentiel distant n'en a pas encore connaissance. Pour synchroniser les changements entre le référentiel local et distant, écrivez la commande : 
 
 ```shell
-$ git push origin pull-request-test-<votre_utilisateur>
+$ git push origin pull-request-demo-<votre_utilisateur>
 ```
 - A partir de maintenant nous allons faire quelques modifications sur cette branche.
 
@@ -78,5 +78,45 @@ $ echo "<Votre Prénom> <Votre Nom>" | shasum
 ```
 - Copiez dans le presse-papier votre code de hachage `<hash de votre nom>`
 
+- Construisons un répertoire avec ce code de hachage et laissons notre filigrane. Pour ce faire, nous nous placerons d'abord sur le répertoire `pr_users` :
+
+```shell
+$ cd pr_users
+$ mkdir <hash de votre nom>
+$ cd <hash de votre nom>
+```
+- Ensuite, nous pouvons créer un simple fichier texte avec la date et l'utilisateur qui l'a créé en filigrane :
+
+```shell
+$ echo "Fichier crée par <votre_utilisateur> le $(date)" > filigrane.txt
+```
+- Nous n'avons qu'à synchroniser les modifications localement (`git status`,`git add`, `git commit`) et synchroniser la branche avec le répertoire distant (`git push`). Pour rappel, ces modifications ont été apportées à la branche  `pull-request-demo-<votre_utilisateur>`
+
+### 4. Faire une pull request 
+
+Maintenant que les données d'une nouvelle branche ont été poussées vers github, nous pouvons voir qu'une nouvelle option apparaît sur github : 
+
+![Pull request](./images/pullrequest.png)
+
+- Il suffit de cliquer sur Compare & pull request pour initier une pull request.
+
+- Lors de la création d'une `pull request`, vous devrez remplir plusieurs options. Une image similaire à la suivante doit apparaître à l'écran : 
+
+![Pull request](./images/openpr.png)
+
+- Bien que l'image puisse être un peu différente dans votre cas, l'idée d'une `pull request` est de demander à l'utilisateur du référentiel d'origine (`juanluck`) d'accepter les modifications apportées dans votre branche. Pour cela, assurez-vous que en `base` apparaît `main:juanluck` (destination de votre requête) et en `compare` la branche où vous avez effectué vos modifications (origine de votre requête). Vous pouvez également ajouter des comentaires et ensuite cliquez sur `Create pull request`.
+
+- **Toutes nos félicitations!!** Vous venez de faire votre première pull request. Maintenant, tout ce que vous avez à faire est d'avoir un peu de patience pour que `juanluck` accepte les modifications sur le référentiel d'origine. Cette pratique que nous venons d'effectuer est la manière standard de collaborer dans un référentiel open source. 
+
+### 5. Accepter une pull request 
+
+Cette pratique est conçue pour initier une pull request. Cependant, dans cette section, nous allons montrer comment nous pouvons accepter une demande de ce type. Si vous souhaitez vous entraîner à la création et à l'acceptation de pull requests, il vous suffit de répéter les étapes précédentes avec le référentiel d'un collègue ou même avec votre propre référentiel (pas besoin de faire un `fork` dans ce cas puisque le dépôt vous appartient. ). 
+
+- Dans le menu github en haut, vous pouvez voir l'option `Pull request`, qui permet de visualiser toutes les requêtes ouvertes de ce type. 
+
+- Dans le cas de cet exercice, il n'y a qu'une seule requête ouverte de ce type dont vous pouvez voir les détails ci-dessous. Les différents onglets : `Conversation`, `commits`,`files changed` permettent d'analyser la demande avant de l'accepter. Il ne reste plus, si vous êtes satisfait, qu'à cliquer sur le bouton vert `Merge pull request`. **Voilà les modifications ont été incorporées dans le référentiel source.**
+
+![Pull request](./images/acceptpr.png)
 
 
+amogus sus sus in the real life he he he ha
